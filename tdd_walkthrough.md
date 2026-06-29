@@ -578,7 +578,7 @@ advanced_tdd
 
 ```
 
-**workkflow_app/src/core/context.py**
+**workflow_app/src/core/context.py**
 ```python
 from typing import List, Any, Dict
 
@@ -592,7 +592,7 @@ class WorkflowContext:
         self.errors: List[Exception] = []
 
 ```
-**workkflow_app/src/core/step.py**
+**workflow_app/src/core/step.py**
 ```python
 from abc import ABC, abstractmethod
 
@@ -609,7 +609,7 @@ class WorkflowStep(ABC):
 
 ```
 
-**workkflow_app/src/steps/user_steps.py**
+**workflow_app/src/steps/user_steps.py**
 ```python
 import copy
 
@@ -668,7 +668,7 @@ class SaveUserStep(WorkflowStep):
         context.store["saved_user_id"] = user_id
 ```
 
-**workkflow_app/tests/tests_steps/test_fetch_user_data_steps.py**
+**workflow_app/tests/tests_steps/test_fetch_user_data_steps.py**
 ```python
 import pytest
 from workflow_app.src.core.context import WorkflowContext
@@ -704,7 +704,7 @@ def test_fetch_user_data_populates_context():
 
 ```
 
-**workkflow_app/tests/tests_steps/test_clean_data_steps.py**
+**workflow_app/tests/tests_steps/test_clean_data_steps.py**
 ```python
 from workflow_app.src.core.context import WorkflowContext
 from workflow_app.src.steps.users_steps import CleanDataStep
@@ -739,7 +739,7 @@ def test_clean_data_creates_cleaned_user_data():
     )
 ```
 
-**workkflow_app/tests/tests_steps/test_save_user_steps.py**
+**workflow_app/tests/tests_steps/test_save_user_steps.py**
 ```python
 import pytest
 
@@ -789,7 +789,7 @@ def test_save_user_step_success(mock_db_repository):
 
 ```
 
-**workkflow_app/tests/conftest.py**
+**workflow_app/tests/conftest.py**
 ```python
 """This code is intended to define a reusable pytest fixture that
 provides a mocked database repository."""
@@ -1157,7 +1157,7 @@ class UserOnboardingWorkflow(BaseWorkflow):
 
 Introduced Orchestration pipeline that will run the workflow steps.
 
-**workkflow_app/src/core/orchestrator.py**
+**workflow_app/src/core/orchestrator.py**
 ```python
 from typing import List
 
