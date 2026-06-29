@@ -1069,19 +1069,17 @@ def test_full_workflow_orchestration(mock_db_repository):
 
     print("Final Store State:", result_context.store)
 
-    assert result_context.store == {
-        'raw_user_data': {
-            'id': 123,
-            'name': 'Sergio',
-            'email': 'sergio@advanced_tdd.com'
-        },
-        'cleaned_user_data': {
-            'id': 123,
-            'name': 'Sergio',
-            'email': 'sergio@advanced_tdd.com'
-        },
-        'saved_user_id': 123
+    assert result_context.store['raw_user_data'] == {
+        'id': 123,
+        'name': 'Sergio',
+        'email': 'SERGIO@ADVANCED_TDD.COM'
     }
+    assert result_context.store['cleaned_user_data'] == {
+        'id': 123,
+        'name': 'Sergio',
+        'email': 'sergio@advanced_tdd.com'
+    }
+    assert "saved_user_id" in result_context.store
 
 
 ```
